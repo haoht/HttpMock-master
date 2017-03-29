@@ -1,0 +1,32 @@
+//
+//  PrefixHeader.pch
+//  test
+//
+//  Created by liman on 6/14/16.
+//  Copyright © 2016 liman. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "LMHttpMock.h"
+#import "NetworkManager.h"
+#import "JSONManager.h"
+#import "HUDHelper.h"
+#import "UIAlertView+Utils.h"
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define GCD_DELAY_AFTER(time, block) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, time * NSEC_PER_SEC), dispatch_get_main_queue(), block)
+
+#define SANDBOX_HOME_PATH           NSHomeDirectory()  // 沙盒目录
+#define SANDBOX_BUNDLE_PATH         [[NSBundle mainBundle] bundlePath]  // MyApp.app
+#define SANDBOX_TEMP_PATH           NSTemporaryDirectory()  // tmp
+#define SANDBOX_DOCUMENT_PATH       [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]  // Documents
+#define SANDBOX_LIBRARY_PATH        [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]  // Library
+
+#endif /* PrefixHeader_pch */
