@@ -6,7 +6,7 @@
 //  Copyright © 2016 liman. All rights reserved.
 //
 
-#import "LMHttpMock.h"
+#import "HttpMock.h"
 #import "GCDWebServer.h"
 #import "GCDWebServerDataResponse.h"
 #import "GCDWebServerURLEncodedFormRequest.h"
@@ -99,11 +99,11 @@
 
 
 
-@interface LMHttpMock ()
+@interface HttpMock ()
 
 @end
 
-@implementation LMHttpMock
+@implementation HttpMock
 
 #pragma mark - public
 /**

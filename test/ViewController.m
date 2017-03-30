@@ -100,7 +100,7 @@
     
     
     // 启动http模拟服务
-    [LMHttpMock start:@[request1, request2, request3, request4] port:8888 result:^(NSURL *serverURL) {
+    [HttpMock start:@[request1, request2, request3, request4] port:8888 result:^(NSURL *serverURL) {
         
         NSLog(@"_______________%@", serverURL);
     }];

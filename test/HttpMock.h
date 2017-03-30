@@ -49,7 +49,7 @@ typedef enum : NSUInteger {
 
 
 
-@interface LMHttpMock : NSObject
+@interface HttpMock : NSObject
 
 /**
  *  启动http模拟服务

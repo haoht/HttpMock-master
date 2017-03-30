@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8964B1CDC76586DCE0305CAE /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CC4A5A8087A3134BD10B06 /* libPods-test.a */; };
-		EA2D32D51D41F36A00F24B44 /* LMHttpMock.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D32D41D41F36A00F24B44 /* LMHttpMock.m */; };
+		EA2D32D51D41F36A00F24B44 /* HttpMock.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D32D41D41F36A00F24B44 /* HttpMock.m */; };
 		EA2D32E11D41F48100F24B44 /* JSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D32D81D41F48100F24B44 /* JSONManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EA2D32E21D41F48100F24B44 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D32DB1D41F48100F24B44 /* CJSONDeserializer.m */; };
 		EA2D32E31D41F48100F24B44 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D32DD1D41F48100F24B44 /* CJSONSerializer.m */; };
@@ -28,8 +28,8 @@
 		D3C7141E4C4E0B5651626532 /* Pods-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.debug.xcconfig"; sourceTree = "<group>"; };
 		E57840941727EAF75077854D /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
 		E9CC4A5A8087A3134BD10B06 /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA2D32D31D41F36A00F24B44 /* LMHttpMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHttpMock.h; sourceTree = "<group>"; };
-		EA2D32D41D41F36A00F24B44 /* LMHttpMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHttpMock.m; sourceTree = "<group>"; };
+		EA2D32D31D41F36A00F24B44 /* HttpMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpMock.h; sourceTree = "<group>"; };
+		EA2D32D41D41F36A00F24B44 /* HttpMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpMock.m; sourceTree = "<group>"; };
 		EA2D32D71D41F48100F24B44 /* JSONManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONManager.h; sourceTree = "<group>"; };
 		EA2D32D81D41F48100F24B44 /* JSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONManager.m; sourceTree = "<group>"; };
 		EA2D32DA1D41F48100F24B44 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				EA6684C71D0FD71F00F86D64 /* AppDelegate.m */,
 				EA6684C91D0FD71F00F86D64 /* ViewController.h */,
 				EA6684CA1D0FD71F00F86D64 /* ViewController.m */,
-				EA2D32D31D41F36A00F24B44 /* LMHttpMock.h */,
-				EA2D32D41D41F36A00F24B44 /* LMHttpMock.m */,
+				EA2D32D31D41F36A00F24B44 /* HttpMock.h */,
+				EA2D32D41D41F36A00F24B44 /* HttpMock.m */,
 				EA6684CF1D0FD71F00F86D64 /* Assets.xcassets */,
 				EA6684D41D0FD71F00F86D64 /* Info.plist */,
 				EA6684C31D0FD71F00F86D64 /* Supporting Files */,
@@ -244,7 +244,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B41C8B19D234BBF0B5C43A2F /* [CP] Embed Pods Frameworks */ = {
@@ -294,7 +294,7 @@
 				EA2D32E11D41F48100F24B44 /* JSONManager.m in Sources */,
 				EA2D32E31D41F48100F24B44 /* CJSONSerializer.m in Sources */,
 				EA2D32E91D41F5A300F24B44 /* NetworkManager.m in Sources */,
-				EA2D32D51D41F36A00F24B44 /* LMHttpMock.m in Sources */,
+				EA2D32D51D41F36A00F24B44 /* HttpMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
